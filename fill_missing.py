@@ -3,15 +3,12 @@ import pandas as pd
 
 
 def fill_missing_values(df: pd.DataFrame) -> pd.DataFrame:
-
     df = df.copy() # to avoid warnings
-
 
     # 1. remove duplicates
     df = df.drop_duplicates()
 
     # 2. Moved to the end
-
 
     # 3. Missing AC -> Fill median
     df['AC'] = df['AC'].fillna(df['AC'].median())
@@ -129,11 +126,4 @@ if __name__ == "__main__":
     filled_df = fill_missing_values(df)
     print(filled_df.isnull().sum())
     filled_df.to_csv("cardiotocography_filled.csv", index=False, encoding="utf-8")
-
-
-
-
-
-
-
 

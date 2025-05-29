@@ -7,8 +7,3 @@ if __name__ == '__main__':
     df['Tendency'] = pd.to_numeric(df["Tendency"])
     profiling = ProfileReport(df, title='Cardiotocography data report')
     profiling.to_file("data-profiling.html")
-
-    json_data = profiling.to_json()
-
-    # As a file
-    profiling.to_file("your_report.json")

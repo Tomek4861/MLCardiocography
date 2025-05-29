@@ -26,15 +26,9 @@ class ModelEvaluator:
         self.y_pred = None
 
 
-    def train_model(self, model):
-        model.fit(self.x_train, self.y_train)
-
-    def run_predictions(self, model):
-        self.y_pred = model.predict(self.x_test)
-
     def evaluate(self, model):
-        self.train_model(model)
-        self.run_predictions(model)
+        model.fit(self.x_train, self.y_train)
+        self.y_pred = model.predict(self.x_test)
         cm = confusion_matrix(self.y_test, self.y_pred)
         print("Confusion matrix:\n", cm)
 
